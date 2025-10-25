@@ -35,6 +35,7 @@ extern char *optarg; // Added declaration for optarg
 /* Returns true if p is ALIGNMENT-byte aligned */
 #define IS_ALIGNED(p) ((((unsigned int)(p)) % ALIGNMENT) == 0)
 
+
 /******************************
  * The key compound data types
  *****************************/
