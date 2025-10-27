@@ -296,14 +296,33 @@ void *mm_realloc(void *ptr, size_t size)
     return NULL;
 }
 
-/* LIFO */
+/* Address-Ordered */
 static void insert_node(void *ptr) {
-    SUCC(ptr) = free_list_head;
-    PRED(ptr) = NULL;
-    if (free_list_head != NULL) {
-        PRED(free_list_head) = ptr;
+    void *pred = NULL;
+    void *succ = free_list_head;
+
+    while(succ != NULL) {
+        if(ptr < succ) {
+            break;
+        }
+        pred = succ;
+        succ = SUCC(succ);
     }
-    free_list_head = ptr;
+
+    /* 맨 앞에 삽입 */
+    if(pred == NULL) {
+        free_list_head = ptr;
+    }
+    else {
+        SUCC(pred) = ptr;
+    }
+
+    if (succ != NULL) {
+        PRED(succ) = ptr;
+    }
+
+    PRED(ptr) = pred;
+    SUCC(ptr) = succ;
 }
 
 static void remove_node(void *ptr) {
