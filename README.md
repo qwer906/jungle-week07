@@ -1,3 +1,7 @@
+<img width="356" height="231" alt="explicit_first_LIFO" src="https://github.com/user-attachments/assets/66352024-241f-48fb-868d-46020fd1aa67" />
+
+
+
 # 📘 Docker + VSCode DevContainer 기반 C 개발 환경 구축 가이드 (MallocLab)
 
 이 문서는 **Windows**와 **macOS** 사용자가 Docker와 VSCode DevContainer 기능을 활용하여 C 개발 및 디버깅 환경을 빠르게 구축할 수 있도록 도와줍니다.
